@@ -1,0 +1,326 @@
+@use '../abstracts/mixins' as *;
+
+// Section styling
+.kato-sync-section {
+  @include card;
+  @include card-body;
+  margin-bottom: var(--kato-space-lg);
+
+  h2 {
+    margin-top: 0;
+    margin-bottom: var(--kato-space-md);
+    font-size: var(--kato-font-size-xl);
+    font-weight: var(--kato-font-weight-semibold);
+    color: var(--kato-text-primary);
+    border-bottom: 2px solid var(--kato-primary);
+    padding-bottom: var(--kato-space-sm);
+  }
+
+  h3 {
+    margin-top: 0;
+    margin-bottom: var(--kato-space-sm);
+    font-size: var(--kato-font-size-lg);
+    font-weight: var(--kato-font-weight-medium);
+    color: var(--kato-text-secondary);
+  }
+
+  p {
+    margin-bottom: var(--kato-space-md);
+    color: var(--kato-text-secondary);
+    line-height: 1.5;
+  }
+}
+
+.kato-sync-button-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--kato-space-md);
+  margin-bottom: var(--kato-space-md);
+}
+
+// Tool items
+.kato-sync-tool-item {
+  border-bottom: 1px solid var(--kato-border-light);
+  padding: var(--kato-space-lg) 0;
+  margin-bottom: var(--kato-space-md);
+
+  &:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-bottom: 0;
+  }
+
+  h3 {
+    color: var(--kato-text-primary);
+    margin-bottom: var(--kato-space-sm);
+  }
+
+  p {
+    margin-bottom: var(--kato-space-md);
+    color: var(--kato-text-secondary);
+  }
+
+  .kato-sync-warning {
+    background: #fff3cd;
+    border: 1px solid #ffeaa7;
+    border-radius: 4px;
+    padding: var(--kato-space-md);
+    margin-bottom: var(--kato-space-md);
+
+    strong {
+      color: #856404;
+    }
+  }
+}
+
+// Filter bar
+.kato-sync-filter-bar {
+  @include card;
+  @include card-body;
+  margin-bottom: var(--kato-space-lg);
+}
+
+// Statistics display
+.kato-sync-stats {
+  display: flex;
+  gap: var(--kato-space-xl);
+  margin: var(--kato-space-md) 0;
+  flex-wrap: wrap;
+}
+
+// Card component
+.card {
+  @include card;
+  @include card-body;
+  margin: var(--kato-space-md) 0;
+
+  h2 {
+    margin-top: 0;
+    border-bottom: 1px solid var(--kato-border-light);
+    padding-bottom: var(--kato-space-sm);
+  }
+}
+
+// Tools page specific styling
+.kato-sync-tools-page {
+  .kato-sync-section {
+    &:nth-child(even) {
+      background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    }
+  }
+
+  // Advanced settings styling to match settings page
+  .kato-sync-advanced-settings {
+    background: #fef2f2;
+    border: 2px solid #dc2626;
+    border-radius: 8px;
+    padding: var(--kato-space-lg);
+    margin-top: var(--kato-space-md);
+
+    .kato-sync-warning-box {
+      background: #dc2626;
+      color: white;
+      padding: var(--kato-space-md);
+      border-radius: 4px;
+      margin-bottom: var(--kato-space-lg);
+
+      p {
+        margin: 0 0 var(--kato-space-sm) 0;
+        color: white;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+
+      strong {
+        color: #fbbf24;
+      }
+    }
+
+    .kato-sync-tool-item {
+      border-bottom: 1px solid #fecaca;
+      padding: var(--kato-space-lg) 0;
+      margin-bottom: var(--kato-space-md);
+
+      &:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+        margin-bottom: 0;
+      }
+
+      h3 {
+        color: #991b1b;
+        margin-bottom: var(--kato-space-sm);
+      }
+
+      p {
+        margin-bottom: var(--kato-space-md);
+        color: #991b1b;
+      }
+    }
+  }
+}
+
+// Settings page specific styling
+.kato-sync-settings-page {
+  .kato-sync-section {
+    &:nth-child(even) {
+      background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    }
+  }
+
+  .form-table {
+    margin-top: var(--kato-space-md);
+
+    th {
+      width: 200px;
+      padding: var(--kato-space-md) var(--kato-space-lg) var(--kato-space-md) 0;
+      font-weight: var(--kato-font-weight-semibold);
+      color: var(--kato-text-primary);
+    }
+
+    td {
+      padding: var(--kato-space-md) 0;
+    }
+
+    input[type='text'],
+    input[type='url'],
+    input[type='number'],
+    select {
+      border: 1px solid var(--kato-border-light);
+      border-radius: 4px;
+      padding: var(--kato-space-sm);
+      transition: border-color 0.2s ease-in-out;
+
+      &:focus {
+        border-color: var(--kato-primary);
+        outline: none;
+        box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+      }
+    }
+
+    .description {
+      margin-top: var(--kato-space-sm);
+      font-size: var(--kato-font-size-sm);
+      color: var(--kato-text-secondary);
+      line-height: 1.4;
+    }
+
+    fieldset {
+      margin: 0;
+      padding: 0;
+      border: none;
+
+      label {
+        display: flex;
+        align-items: center;
+        margin-bottom: var(--kato-space-sm);
+        font-weight: var(--kato-font-weight-medium);
+
+        input[type='checkbox'],
+        input[type='radio'] {
+          margin-right: var(--kato-space-sm);
+        }
+      }
+    }
+  }
+
+  .kato-sync-advanced-settings {
+    background: #fef2f2;
+    border: 2px solid #dc2626;
+    border-radius: 8px;
+    padding: var(--kato-space-lg);
+    margin-top: var(--kato-space-md);
+
+    .kato-sync-warning-box {
+      background: #dc2626;
+      color: white;
+      padding: var(--kato-space-md);
+      border-radius: 4px;
+      margin-bottom: var(--kato-space-lg);
+
+      p {
+        margin: 0 0 var(--kato-space-sm) 0;
+        color: white;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+
+      strong {
+        color: #fbbf24;
+      }
+    }
+
+    .form-table {
+      margin-top: 0;
+
+      th {
+        color: #991b1b;
+      }
+    }
+  }
+
+  .kato-sync-form-actions {
+    display: flex;
+    gap: var(--kato-space-md);
+    align-items: center;
+    justify-content: flex-start;
+    padding: var(--kato-space-lg) 0;
+    border-top: 1px solid var(--kato-border-light);
+    margin-top: var(--kato-space-lg);
+  }
+}
+
+// Responsive section layout
+@media screen and (max-width: 767px) {
+  .kato-sync-section {
+    padding: var(--kato-space-md);
+    margin-bottom: var(--kato-space-md);
+  }
+
+  .kato-sync-stats {
+    flex-direction: column;
+    gap: var(--kato-space-md);
+
+    .stat-item {
+      min-width: auto;
+    }
+  }
+
+  .kato-sync-button-group {
+    flex-direction: column;
+
+    .button {
+      width: 100%;
+      margin-bottom: var(--kato-space-sm);
+    }
+  }
+
+  .kato-sync-settings-page {
+    .form-table {
+      th {
+        width: auto;
+        display: block;
+        padding-bottom: var(--kato-space-sm);
+      }
+
+      td {
+        display: block;
+        padding-top: 0;
+      }
+    }
+
+    .kato-sync-form-actions {
+      flex-direction: column;
+      align-items: stretch;
+
+      .button {
+        width: 100%;
+        margin-bottom: var(--kato-space-sm);
+      }
+    }
+  }
+}

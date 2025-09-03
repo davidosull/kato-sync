@@ -1,0 +1,107 @@
+// CSS Custom Properties for runtime manipulation
+:root {
+  // Colors
+  --kato-primary: #3b82f6;
+  --kato-primary-hover: #2563eb;
+  --kato-success: #059669;
+  --kato-success-light: #dcfce7;
+  --kato-success-border: #bbf7d0;
+  --kato-success-text: #166534;
+  --kato-error: #dc2626;
+  --kato-error-light: #fef2f2;
+  --kato-error-border: #fecaca;
+  --kato-error-text: #dc2626;
+  --kato-warning: #d97706;
+  --kato-warning-light: #fef3c7;
+  --kato-warning-border: #fed7aa;
+  --kato-warning-text: #d97706;
+  --kato-info: #1e40af;
+  --kato-info-light: #dbeafe;
+  --kato-info-border: #93c5fd;
+  --kato-info-text: #1e40af;
+
+  // Neutrals
+  --kato-white: #ffffff;
+  --kato-gray-50: #f9fafb;
+  --kato-gray-100: #f3f4f6;
+  --kato-gray-200: #e5e7eb;
+  --kato-gray-300: #d1d5db;
+  --kato-gray-400: #9ca3af;
+  --kato-gray-500: #6b7280;
+  --kato-gray-600: #4b5563;
+  --kato-gray-700: #374151;
+  --kato-gray-800: #1f2937;
+  --kato-gray-900: #111827;
+
+  // Semantic Colors
+  --kato-text-primary: var(--kato-gray-800);
+  --kato-text-secondary: var(--kato-gray-600);
+  --kato-text-muted: var(--kato-gray-400);
+  --kato-border: var(--kato-gray-200);
+  --kato-border-light: var(--kato-gray-100);
+  --kato-background: var(--kato-white);
+  --kato-background-muted: var(--kato-gray-50);
+
+  // Spacing
+  --kato-space-xs: 4px;
+  --kato-space-sm: 8px;
+  --kato-space-md: 16px;
+  --kato-space-lg: 24px;
+  --kato-space-xl: 32px;
+  --kato-space-2xl: 48px;
+
+  // Typography
+  --kato-font-size-xs: 11px;
+  --kato-font-size-sm: 12px;
+  --kato-font-size-base: 14px;
+  --kato-font-size-lg: 16px;
+  --kato-font-size-xl: 18px;
+  --kato-font-size-2xl: 20px;
+
+  --kato-font-weight-normal: 400;
+  --kato-font-weight-medium: 500;
+  --kato-font-weight-semibold: 600;
+  --kato-font-weight-bold: 700;
+
+  --kato-line-height-tight: 1.2;
+  --kato-line-height-normal: 1.4;
+  --kato-line-height-relaxed: 1.5;
+
+  // Border Radius
+  --kato-radius-sm: 4px;
+  --kato-radius: 6px;
+  --kato-radius-lg: 8px;
+  --kato-radius-xl: 12px;
+
+  // Shadows
+  --kato-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --kato-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  --kato-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --kato-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --kato-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+
+  // Z-index
+  --kato-z-dropdown: 1000;
+  --kato-z-sticky: 1020;
+  --kato-z-fixed: 1030;
+  --kato-z-modal-backdrop: 1040;
+  --kato-z-modal: 1050;
+  --kato-z-popover: 1060;
+  --kato-z-tooltip: 1070;
+
+  // Breakpoints (for JS access)
+  --kato-breakpoint-sm: 640px;
+  --kato-breakpoint-md: 768px;
+  --kato-breakpoint-lg: 1024px;
+  --kato-breakpoint-xl: 1280px;
+}
+
+// WordPress admin colour compatibility
+:root {
+  --kato-wp-admin-blue: #0073aa;
+  --kato-wp-admin-green: #46b450;
+  --kato-wp-admin-red: #dc3232;
+}

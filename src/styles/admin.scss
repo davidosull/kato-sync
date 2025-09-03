@@ -1,0 +1,24 @@
+// Kato Sync Admin Styles - Main entry point
+
+// Abstracts - Variables, mixins, functions
+@use 'abstracts/variables' as *;
+@use 'abstracts/mixins' as *;
+
+// Base - Resets, typography, base element styles
+@use 'base/reset' as *;
+
+// Components - UI components
+@use 'components/buttons' as *;
+@use 'components/status' as *;
+@use 'components/progress' as *;
+@use 'components/messages' as *;
+@use 'components/forms' as *;
+@use 'components/modal' as *;
+
+// Layout - Page structure, grids, sections
+@use 'layout/sections' as *;
+@use 'layout/tables' as *;
+
+// Pages - Page-specific styles
+@use 'pages/frontend' as *;
+@use 'pages/debug' as *;

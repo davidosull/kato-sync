@@ -1,0 +1,121 @@
+@use '../abstracts/mixins' as *;
+
+// Frontend shortcode styles
+.kato-properties-grid {
+  @include grid-auto-fill(300px, var(--kato-space-lg));
+  margin: var(--kato-space-lg) 0;
+}
+
+.kato-property-card {
+  @include card;
+  padding: var(--kato-space-lg);
+  transition: box-shadow 0.2s ease-in-out;
+
+  &:hover {
+    box-shadow: var(--kato-shadow-md);
+  }
+
+  h3 {
+    margin: 0 0 var(--kato-space-md) 0;
+    font-size: var(--kato-font-size-xl);
+    font-weight: var(--kato-font-weight-semibold);
+
+    a {
+      color: var(--kato-text-primary);
+      text-decoration: none;
+
+      &:hover {
+        color: var(--kato-primary);
+      }
+    }
+  }
+
+  p {
+    margin: var(--kato-space-sm) 0;
+    font-size: var(--kato-font-size-base);
+    line-height: var(--kato-line-height-relaxed);
+  }
+
+  .location {
+    color: var(--kato-text-muted);
+  }
+
+  .types {
+    color: var(--kato-success);
+    font-weight: var(--kato-font-weight-medium);
+  }
+
+  .size {
+    color: var(--kato-text-secondary);
+    font-weight: var(--kato-font-weight-medium);
+  }
+
+  .price {
+    color: var(--kato-error);
+    font-weight: var(--kato-font-weight-semibold);
+    font-size: var(--kato-font-size-lg);
+  }
+
+  .available-units {
+    color: var(--kato-success);
+    font-weight: var(--kato-font-weight-semibold);
+  }
+}
+
+// Image display
+.kato-sync-images {
+  margin: var(--kato-space-md) 0;
+}
+
+.kato-sync-image-grid {
+  @include grid-auto-fill(200px, var(--kato-space-md));
+  margin-top: var(--kato-space-md);
+}
+
+.kato-sync-image-item {
+  border: 1px solid var(--kato-border);
+  border-radius: var(--kato-radius-sm);
+  overflow: hidden;
+  background: var(--kato-background);
+
+  img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    display: block;
+  }
+}
+
+.image-title {
+  margin: 0;
+  padding: var(--kato-space-sm);
+  font-size: var(--kato-font-size-sm);
+  color: var(--kato-text-secondary);
+  text-align: center;
+  background: var(--kato-background-muted);
+}
+
+// Frontend Property Images
+.kato-sync-property-images {
+  @include grid-auto-fill(250px, var(--kato-space-md));
+  margin: var(--kato-space-md) 0;
+}
+
+.property-image img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: var(--kato-radius-sm);
+}
+
+// Responsive design for frontend
+@media screen and (max-width: 767px) {
+  .kato-properties-grid {
+    grid-template-columns: 1fr;
+    gap: var(--kato-space-md);
+  }
+
+  .kato-sync-image-grid {
+    @include grid-auto-fill(150px, var(--kato-space-md));
+  }
+}

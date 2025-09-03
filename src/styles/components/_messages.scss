@@ -1,0 +1,51 @@
+// Base message styles
+.kato-sync-message {
+  padding: var(--kato-space-md);
+  border-radius: var(--kato-radius-lg);
+  margin: var(--kato-space-md) 0;
+  font-weight: var(--kato-font-weight-medium);
+  line-height: var(--kato-line-height-relaxed);
+}
+
+.kato-sync-message-success {
+  background-color: var(--kato-success-light);
+  border: 1px solid var(--kato-success-border);
+  color: var(--kato-success-text);
+}
+
+.kato-sync-message-error {
+  background-color: var(--kato-error-light);
+  border: 1px solid var(--kato-error-border);
+  color: var(--kato-error-text);
+}
+
+.kato-sync-message-warning {
+  background-color: var(--kato-warning-light);
+  border: 1px solid var(--kato-warning-border);
+  color: var(--kato-warning-text);
+}
+
+.kato-sync-message-info {
+  background-color: var(--kato-info-light);
+  border: 1px solid var(--kato-info-border);
+  color: var(--kato-info-text);
+}
+
+// Message content styling
+.kato-sync-message div {
+  margin: 0;
+
+  &:first-child {
+    margin-bottom: var(--kato-space-sm);
+  }
+}
+
+// Warning styling (legacy)
+.kato-sync-warning {
+  background-color: var(--kato-error-light);
+  border: 1px solid var(--kato-error-border);
+  border-radius: var(--kato-radius);
+  padding: var(--kato-space-sm) var(--kato-space-md);
+  margin: var(--kato-space-md) 0;
+  color: var(--kato-error-text);
+}

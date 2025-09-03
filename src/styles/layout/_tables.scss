@@ -1,0 +1,140 @@
+@use '../abstracts/mixins' as *;
+
+// Table improvements
+.kato-sync-properties-table {
+  table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  th {
+    background-color: var(--kato-background-muted);
+    border-bottom: 2px solid var(--kato-border);
+    font-weight: var(--kato-font-weight-semibold);
+    text-align: left;
+    padding: var(--kato-space-sm) var(--kato-space-md);
+    white-space: nowrap;
+
+    &.sortable {
+      cursor: pointer;
+
+      a {
+        @include flex-between;
+        text-decoration: none;
+        color: inherit;
+
+        &:hover {
+          color: var(--kato-primary);
+        }
+      }
+    }
+
+    &.sorted {
+      .sorting-indicator::before {
+        color: var(--kato-primary);
+        font-weight: var(--kato-font-weight-bold);
+      }
+
+      &.asc .sorting-indicator::before {
+        content: '↑';
+      }
+
+      &.desc .sorting-indicator::before {
+        content: '↓';
+      }
+    }
+
+    &.sortable:not(.sorted) .sorting-indicator::before {
+      content: '↕';
+      color: var(--kato-text-muted);
+      opacity: 0.5;
+    }
+  }
+
+  td {
+    border-bottom: 1px solid var(--kato-border-light);
+    padding: var(--kato-space-sm) var(--kato-space-md);
+    vertical-align: middle;
+  }
+
+  tr:hover {
+    background-color: var(--kato-background-muted);
+  }
+
+  // Table column styling
+  .text-muted {
+    color: var(--kato-text-muted);
+    font-style: italic;
+  }
+
+  .price-range {
+    font-weight: var(--kato-font-weight-normal);
+    color: inherit;
+  }
+
+  .size-value {
+    font-weight: var(--kato-font-weight-normal);
+    color: inherit;
+  }
+
+  .available-units {
+    font-weight: var(--kato-font-weight-semibold);
+    color: var(--kato-success);
+
+    &.zero {
+      color: var(--kato-text-muted);
+    }
+  }
+}
+
+// Pagination
+.kato-sync-properties-table .tablenav {
+  margin-top: var(--kato-space-md);
+  padding: var(--kato-space-md) 0;
+  border-top: 1px solid var(--kato-border);
+}
+
+.kato-sync-properties-table .displaying-num {
+  margin-block-end: 0.5em;
+  display: block;
+}
+
+.kato-sync-properties-table .pagination-links {
+  @include flex-center;
+  gap: var(--kato-space-sm);
+
+  a,
+  span {
+    @include flex-center;
+    min-width: 32px;
+    height: 32px;
+    padding: 0 var(--kato-space-sm);
+    border: 1px solid var(--kato-border);
+    border-radius: var(--kato-radius);
+    text-decoration: none;
+    font-size: var(--kato-font-size-base);
+    transition: all 0.15s ease-in-out;
+
+    &:hover {
+      background-color: var(--kato-gray-100);
+      border-color: var(--kato-text-muted);
+    }
+  }
+
+  span.paging-input {
+    background-color: var(--kato-primary);
+    border-color: var(--kato-primary);
+    color: var(--kato-white);
+  }
+}
+
+// Responsive table design
+@media screen and (max-width: 767px) {
+  .kato-sync-properties-table {
+    overflow-x: auto;
+
+    table {
+      min-width: 600px;
+    }
+  }
+}

@@ -1,0 +1,31 @@
+// Plugin-specific reset to avoid conflicts with WordPress admin
+.kato-sync {
+  // Reset box-sizing for our plugin
+  &,
+  &::before,
+  &::after {
+    box-sizing: border-box;
+  }
+
+  // Reset margins and padding for our components
+  .kato-sync-section,
+  .kato-sync-modal,
+  .kato-sync-form,
+  .kato-sync-table {
+    margin: 0;
+    padding: 0;
+  }
+
+  // Ensure consistent font rendering
+  .kato-sync-section {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+// Remove outline for mouse users but keep for keyboard users
+.kato-sync {
+  .js-focus-visible &:focus:not(.focus-visible) {
+    outline: none;
+  }
+}

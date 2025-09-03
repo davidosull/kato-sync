@@ -1,0 +1,196 @@
+@use '../abstracts/mixins' as *;
+
+// Form improvements
+.kato-sync-section .form-table {
+  th {
+    width: 200px;
+    padding: var(--kato-space-md) 10px var(--kato-space-md) 0;
+    font-weight: var(--kato-font-weight-medium);
+    color: var(--kato-text-secondary);
+  }
+
+  td {
+    padding: var(--kato-space-md) 10px;
+  }
+
+  input[type='text'],
+  input[type='url'],
+  input[type='number'],
+  input[type='time'],
+  select {
+    border: 1px solid var(--kato-border);
+    border-radius: var(--kato-radius);
+    padding: var(--kato-space-sm) var(--kato-space-sm);
+    font-size: var(--kato-font-size-base);
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    min-width: 200px;
+
+    &:focus {
+      @include focus-ring;
+    }
+  }
+}
+
+// Description text
+.kato-sync-section .description {
+  color: var(--kato-text-muted);
+  font-size: var(--kato-font-size-sm);
+  margin-top: var(--kato-space-xs);
+  line-height: var(--kato-line-height-normal);
+}
+
+// Fieldset styling
+.kato-sync-section fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+
+  label {
+    @include flex-center;
+    justify-content: flex-start;
+    margin-bottom: var(--kato-space-sm);
+    font-weight: var(--kato-font-weight-normal);
+    color: var(--kato-text-secondary);
+
+    input[type='checkbox'] {
+      margin-right: var(--kato-space-sm);
+    }
+  }
+}
+
+// Filter form
+.kato-sync-filters-form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--kato-space-md);
+  align-items: flex-end;
+  margin-bottom: 0;
+}
+
+.filter-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--kato-space-md);
+  align-items: flex-end;
+  width: 100%;
+  margin-bottom: 0;
+}
+
+.filter-group {
+  @include flex-column;
+  min-width: 140px;
+  max-width: 180px;
+  margin-bottom: 0;
+
+  label {
+    margin-bottom: var(--kato-space-xs);
+    font-size: var(--kato-font-size-sm);
+    font-weight: var(--kato-font-weight-medium);
+  }
+
+  input[type='text'],
+  input[type='number'],
+  select {
+    padding: 6px 10px;
+    font-size: var(--kato-font-size-base);
+    border-radius: var(--kato-radius-sm);
+    border: 1px solid var(--kato-border);
+    min-width: 0;
+
+    &:focus {
+      @include focus-ring;
+    }
+  }
+
+  input[type='checkbox'] {
+    margin-top: var(--kato-space-sm);
+    width: 16px;
+    height: 16px;
+  }
+}
+
+// Frontend property filters
+.kato-property-filters {
+  background: var(--kato-background-muted);
+  border: 1px solid var(--kato-border);
+  border-radius: var(--kato-radius-lg);
+  padding: var(--kato-space-lg);
+  margin: var(--kato-space-lg) 0;
+}
+
+.kato-filters-form {
+  @include grid-auto-fit(200px, var(--kato-space-md));
+  align-items: end;
+}
+
+.kato-property-filters .filter-group {
+  @include flex-column;
+  min-width: auto;
+  max-width: none;
+
+  label {
+    margin-bottom: var(--kato-space-sm);
+    font-weight: var(--kato-font-weight-medium);
+    color: var(--kato-text-secondary);
+    font-size: var(--kato-font-size-base);
+  }
+
+  select,
+  input[type='checkbox'] {
+    padding: var(--kato-space-sm) var(--kato-space-sm);
+    border: 1px solid var(--kato-border);
+    border-radius: var(--kato-radius);
+    font-size: var(--kato-font-size-base);
+
+    &:focus {
+      @include focus-ring;
+    }
+  }
+}
+
+.filter-submit {
+  background: var(--kato-primary);
+  color: var(--kato-white);
+  border: none;
+  border-radius: var(--kato-radius);
+  padding: 10px 20px;
+  font-size: var(--kato-font-size-base);
+  font-weight: var(--kato-font-weight-medium);
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+
+  &:hover:not(:disabled) {
+    background: var(--kato-primary-hover);
+  }
+
+  &:focus {
+    @include focus-ring;
+  }
+}
+
+// Responsive form layout
+@media screen and (max-width: 1023px) {
+  .kato-sync-filters-form,
+  .filter-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .kato-sync-section .form-table th,
+  .kato-sync-section .form-table td {
+    display: block;
+    width: 100%;
+    padding: var(--kato-space-sm) 0;
+  }
+
+  .kato-sync-section .form-table th {
+    border-bottom: none;
+    padding-bottom: var(--kato-space-xs);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .kato-filters-form {
+    grid-template-columns: 1fr;
+  }
+}

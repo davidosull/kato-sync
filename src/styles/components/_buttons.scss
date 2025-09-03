@@ -1,0 +1,286 @@
+@use '../abstracts/mixins' as *;
+
+// Unified Button System for Kato Sync Admin
+// This provides consistent button styling across all admin pages
+
+// Base button styles - applies to all buttons
+.button {
+  @include button-base;
+  transition: all 0.2s ease-in-out;
+
+  &:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+  }
+}
+
+// Primary button - main actions
+.button-primary {
+  background: linear-gradient(135deg, var(--kato-primary) 0%, #0056b3 100%);
+  border: none;
+  color: var(--kato-white);
+  font-weight: var(--kato-font-weight-semibold);
+
+  &:hover:not(:disabled) {
+    background: linear-gradient(135deg, #0056b3 0%, #004085 100%);
+    color: var(--kato-white);
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.25);
+  }
+}
+
+// Secondary button - supporting actions
+.button-secondary {
+  background: linear-gradient(
+    135deg,
+    var(--kato-gray-100) 0%,
+    var(--kato-gray-200) 100%
+  );
+  border: 1px solid var(--kato-gray-300);
+  color: var(--kato-text-primary);
+  font-weight: var(--kato-font-weight-medium);
+
+  &:hover:not(:disabled) {
+    background: linear-gradient(
+      135deg,
+      var(--kato-gray-200) 0%,
+      var(--kato-gray-300) 100%
+    );
+    border-color: var(--kato-gray-400);
+    color: var(--kato-text-primary);
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 3px rgba(107, 114, 128, 0.25);
+  }
+}
+
+// Danger button - destructive actions
+.button-danger {
+  background: linear-gradient(135deg, var(--kato-error) 0%, #c82333 100%);
+  border: none;
+  color: var(--kato-white);
+  font-weight: var(--kato-font-weight-semibold);
+
+  &:hover:not(:disabled) {
+    background: linear-gradient(135deg, #c82333 0%, #a71e2a 100%);
+    color: var(--kato-white);
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.25);
+  }
+}
+
+// Warning button - cautionary actions
+.button-warning {
+  background: linear-gradient(135deg, var(--kato-warning) 0%, #e0a800 100%);
+  border: none;
+  color: var(--kato-white);
+  font-weight: var(--kato-font-weight-semibold);
+
+  &:hover:not(:disabled) {
+    background: linear-gradient(135deg, #e0a800 0%, #d39e00 100%);
+    color: var(--kato-white);
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.25);
+  }
+}
+
+// Success button - positive actions
+.button-success {
+  background: linear-gradient(135deg, var(--kato-success) 0%, #059669 100%);
+  border: none;
+  color: var(--kato-white);
+  font-weight: var(--kato-font-weight-semibold);
+
+  &:hover:not(:disabled) {
+    background: linear-gradient(135deg, #059669 0%, #047857 100%);
+    color: var(--kato-white);
+  }
+
+  &:focus {
+    box-shadow: 0 0 0 3px rgba(5, 150, 105, 0.25);
+  }
+}
+
+// Small button variant
+.button-small {
+  padding: var(--kato-space-xs) var(--kato-space-sm);
+  font-size: var(--kato-font-size-sm);
+  border-radius: var(--kato-radius-sm);
+}
+
+// Large button variant
+.button-large {
+  padding: var(--kato-space-md) var(--kato-space-lg);
+  font-size: var(--kato-font-size-lg);
+  border-radius: var(--kato-radius-lg);
+}
+
+// Button groups
+.kato-sync-button-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--kato-space-md);
+  margin-bottom: var(--kato-space-md);
+  align-items: center;
+
+  .button {
+    flex-shrink: 0;
+  }
+}
+
+// Form action buttons
+.kato-sync-form-actions {
+  display: flex;
+  gap: var(--kato-space-md);
+  align-items: center;
+  justify-content: flex-start;
+  padding: var(--kato-space-lg) 0;
+  border-top: 1px solid var(--kato-border-light);
+  margin-top: var(--kato-space-lg);
+
+  .button {
+    min-width: 120px;
+  }
+}
+
+// Filter action buttons
+.filter-actions {
+  display: flex;
+  gap: var(--kato-space-sm);
+  align-items: center;
+  margin-left: auto;
+  padding-top: 0;
+  border-top: none;
+
+  .button {
+    padding: var(--kato-space-sm) var(--kato-space-md);
+    font-size: var(--kato-font-size-base);
+    font-weight: var(--kato-font-weight-medium);
+  }
+}
+
+// Diagnostic buttons
+.diagnostic-buttons {
+  display: flex;
+  gap: var(--kato-space-md);
+  flex-wrap: wrap;
+  margin-top: var(--kato-space-md);
+
+  .button {
+    min-width: 140px;
+  }
+}
+
+// Action buttons (for quick actions)
+.action-buttons {
+  display: flex;
+  gap: var(--kato-space-md);
+  flex-wrap: wrap;
+  margin-top: var(--kato-space-md);
+
+  .button {
+    min-width: 120px;
+  }
+}
+
+// Import controls
+.import-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: var(--kato-space-md);
+  border-top: 1px solid var(--kato-border-light);
+  margin-top: var(--kato-space-md);
+
+  .button {
+    min-width: 140px;
+  }
+}
+
+// Loading state for all buttons
+.kato-sync-loading {
+  @include loading-overlay;
+}
+
+// Responsive button layout
+@media screen and (max-width: 767px) {
+  .kato-sync-button-group,
+  .kato-sync-form-actions,
+  .filter-actions,
+  .diagnostic-buttons,
+  .action-buttons,
+  .import-controls {
+    flex-direction: column;
+    align-items: stretch;
+
+    .button {
+      width: 100%;
+      margin-bottom: var(--kato-space-sm);
+    }
+  }
+
+  .filter-actions {
+    margin-left: 0;
+    justify-content: flex-start;
+  }
+}
+
+// WordPress admin compatibility
+// Ensure our buttons work well with WordPress admin styling
+.wp-admin {
+  .button {
+    // Override WordPress default button styles
+    &.button-primary {
+      background: linear-gradient(
+        135deg,
+        var(--kato-primary) 0%,
+        #0056b3 100%
+      ) !important;
+      border: none !important;
+      color: var(--kato-white) !important;
+
+      &:hover:not(:disabled) {
+        background: linear-gradient(
+          135deg,
+          #0056b3 0%,
+          #004085 100%
+        ) !important;
+        color: var(--kato-white) !important;
+      }
+    }
+
+    &.button-secondary {
+      background: linear-gradient(
+        135deg,
+        var(--kato-gray-100) 0%,
+        var(--kato-gray-200) 100%
+      ) !important;
+      border: 1px solid var(--kato-gray-300) !important;
+      color: var(--kato-text-primary) !important;
+
+      &:hover:not(:disabled) {
+        background: linear-gradient(
+          135deg,
+          var(--kato-gray-200) 0%,
+          var(--kato-gray-300) 100%
+        ) !important;
+        border-color: var(--kato-gray-400) !important;
+        color: var(--kato-text-primary) !important;
+      }
+    }
+  }
+}

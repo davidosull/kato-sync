@@ -1,0 +1,248 @@
+@use '../abstracts/mixins' as *;
+
+// Property Data Modal
+.kato-sync-modal {
+  display: none;
+  position: fixed;
+  z-index: var(--kato-z-modal-backdrop);
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(2px);
+}
+
+.kato-sync-modal-content {
+  background-color: var(--kato-background);
+  margin: 2% auto;
+  border-radius: var(--kato-radius-lg);
+  width: 90%;
+  max-width: 800px;
+  max-height: 90vh;
+  overflow: hidden;
+  box-shadow: var(--kato-shadow-xl);
+  animation: kato-sync-modal-fade-in 0.3s ease-out;
+  z-index: var(--kato-z-modal);
+}
+
+@keyframes kato-sync-modal-fade-in {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.kato-sync-modal-header {
+  @include flex-between;
+  @include card-header;
+
+  h2 {
+    margin: 0;
+    font-size: var(--kato-font-size-xl);
+    font-weight: var(--kato-font-weight-semibold);
+    color: var(--kato-text-primary);
+  }
+}
+
+.kato-sync-modal-close {
+  font-size: 24px;
+  font-weight: var(--kato-font-weight-bold);
+  color: var(--kato-text-muted);
+  cursor: pointer;
+  line-height: 1;
+  padding: var(--kato-space-xs);
+  border-radius: var(--kato-radius-sm);
+  transition: all 0.2s ease;
+
+  &:hover {
+    color: var(--kato-text-secondary);
+    background-color: var(--kato-gray-100);
+  }
+}
+
+.kato-sync-modal-body {
+  @include card-body;
+  max-height: calc(90vh - 120px);
+  overflow-y: auto;
+}
+
+.kato-sync-property-data {
+  @include flex-column;
+  gap: var(--kato-space-lg);
+}
+
+.kato-sync-data-section {
+  @include card;
+  background-color: var(--kato-background-muted);
+  padding: var(--kato-space-md);
+
+  h3 {
+    margin: 0 0 var(--kato-space-md) 0;
+    font-size: var(--kato-font-size-lg);
+    font-weight: var(--kato-font-weight-semibold);
+    color: var(--kato-text-secondary);
+    border-bottom: 2px solid var(--kato-primary);
+    padding-bottom: var(--kato-space-sm);
+  }
+}
+
+.kato-sync-data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--kato-font-size-base);
+
+  td {
+    padding: var(--kato-space-sm) var(--kato-space-sm);
+    border-bottom: 1px solid var(--kato-border-light);
+    vertical-align: top;
+
+    &:first-child {
+      font-weight: var(--kato-font-weight-medium);
+      color: var(--kato-text-secondary);
+      width: 200px;
+      min-width: 200px;
+    }
+
+    &:last-child {
+      color: var(--kato-text-primary);
+      word-break: break-word;
+    }
+  }
+
+  tr:last-child td {
+    border-bottom: none;
+  }
+}
+
+// Media display in modal
+.kato-sync-media-list {
+  @include flex-column;
+  gap: var(--kato-space-sm);
+}
+
+.kato-sync-media-item {
+  padding: var(--kato-space-sm) var(--kato-space-sm);
+  background-color: var(--kato-gray-100);
+  border-radius: var(--kato-radius-sm);
+  border: 1px solid var(--kato-border);
+
+  a {
+    color: var(--kato-primary);
+    text-decoration: none;
+    font-weight: var(--kato-font-weight-medium);
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+// Image grids in modal
+.kato-sync-images-grid {
+  @include grid-auto-fill(120px, var(--kato-space-sm));
+  margin-top: var(--kato-space-sm);
+}
+
+.kato-sync-image-item {
+  text-align: center;
+  border: 1px solid var(--kato-border);
+  border-radius: var(--kato-radius);
+  padding: var(--kato-space-sm);
+  background: var(--kato-background);
+}
+
+.kato-sync-thumbnail {
+  width: 100%;
+  height: 80px;
+  object-fit: cover;
+  border-radius: var(--kato-radius-sm);
+  margin-bottom: var(--kato-space-xs);
+}
+
+.kato-sync-image-name {
+  font-size: var(--kato-font-size-xs);
+  color: var(--kato-text-muted);
+  word-break: break-all;
+  line-height: var(--kato-line-height-tight);
+}
+
+// Files and contacts lists
+.kato-sync-files-list,
+.kato-sync-contacts-list {
+  @include flex-column;
+  gap: var(--kato-space-sm);
+  margin-top: var(--kato-space-sm);
+}
+
+.kato-sync-file-item,
+.kato-sync-contact-item {
+  padding: var(--kato-space-sm) var(--kato-space-sm);
+  background-color: var(--kato-gray-100);
+  border-radius: var(--kato-radius-sm);
+  border: 1px solid var(--kato-border);
+}
+
+.kato-sync-file-item {
+  a {
+    color: var(--kato-primary);
+    text-decoration: none;
+    font-weight: var(--kato-font-weight-medium);
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  small {
+    color: var(--kato-text-muted);
+    font-size: var(--kato-font-size-sm);
+  }
+}
+
+.kato-sync-contact-item {
+  strong {
+    color: var(--kato-text-secondary);
+    font-size: var(--kato-font-size-base);
+  }
+
+  a {
+    color: var(--kato-primary);
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+// Modal responsive design
+@media screen and (max-width: 767px) {
+  .kato-sync-modal-content {
+    width: 95%;
+    margin: 5% auto;
+    max-height: 95vh;
+  }
+
+  .kato-sync-modal-header {
+    padding: var(--kato-space-md) var(--kato-space-lg);
+  }
+
+  .kato-sync-modal-body {
+    padding: var(--kato-space-lg);
+    max-height: calc(95vh - 100px);
+  }
+
+  .kato-sync-data-section {
+    padding: var(--kato-space-md);
+  }
+
+  .kato-sync-data-table td:first-child {
+    width: 120px;
+    min-width: 120px;
+  }
+}
